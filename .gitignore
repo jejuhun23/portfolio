@@ -1,0 +1,11 @@
+# IDE 설정 파일
+.vscode/
+
+# 환경 변수 파일
+.env
+.env.*
+
+# OS 생성 파일
+.DS_Store
+Thumbs.db
+
