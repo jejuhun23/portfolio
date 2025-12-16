@@ -1,0 +1,1613 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    min-height: 100vh;
+    color: white;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.header {
+    padding: 3rem 2.5rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.08));
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.profile-image {
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 4px solid rgba(35, 213, 171, 0.3);
+    box-shadow: 0 0 30px rgba(35, 213, 171, 0.2), 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 0 40px rgba(35, 213, 171, 0.4), 0 12px 30px rgba(0, 0, 0, 0.4);
+    border-color: rgba(35, 213, 171, 0.5);
+}
+
+.profile-info {
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* 이름과 타이틀 영역 */
+.name-title {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.profile-info h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.title-badge {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    animation: badgePulse 3s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+    0%, 100% { 
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        transform: translateY(0);
+    }
+    50% { 
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        transform: translateY(-2px);
+    }
+}
+
+.student-info {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.subtitle, .student-id {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.5rem 1.2rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 25px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.subtitle:hover, .student-id:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.subtitle i, .student-id i {
+    color: #23d5ab;
+    font-size: 1.2rem;
+}
+
+.tech-badges {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: linear-gradient(135deg, rgba(35, 213, 171, 0.15), rgba(35, 166, 213, 0.15));
+    color: #fff;
+    padding: 0.7rem 1.4rem;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1.5px solid rgba(35, 213, 171, 0.4);
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.badge:hover::before {
+    left: 100%;
+}
+
+.badge:hover {
+    background: linear-gradient(135deg, rgba(35, 213, 171, 0.3), rgba(35, 166, 213, 0.3));
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(35, 213, 171, 0.3);
+    border-color: rgba(35, 213, 171, 0.6);
+}
+
+.badge i {
+    font-size: 1.1rem;
+    color: #23d5ab;
+}
+
+.contact-info {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.contact-item {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.8rem 1.3rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    font-size: 0.95rem;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.contact-item:hover::before {
+    opacity: 1;
+}
+
+.contact-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+.contact-item i {
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 1;
+    color: #23d5ab;
+}
+
+.contact-item span,
+.contact-item:not(:has(span)) {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 2rem 1.5rem;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-info {
+        text-align: center;
+    }
+
+    .name-title {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .profile-info h1 {
+        font-size: 2.5rem;
+    }
+
+    .title-badge {
+        font-size: 0.9rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .student-info {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .subtitle, .student-id {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .tech-badges {
+        justify-content: center;
+    }
+
+    .badge {
+        font-size: 0.85rem;
+        padding: 0.6rem 1.2rem;
+    }
+
+    .contact-info {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-item {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .intro-text, .vision-text {
+        font-size: 1rem;
+    }
+
+    .profile-pic {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.skills-section, .project-section, .contact-section {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-overview {
+    background: rgba(76, 175, 80, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    border-left: 4px solid #4CAF50;
+}
+
+.implementation-details {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+.implementation-details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.implementation-details li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.implementation-details li:before {
+    content: '⚡';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+}
+
+.code-section {
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.code-section code {
+    display: block;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    font-family: 'Consolas', monospace;
+    line-height: 1.5;
+    overflow-x: auto;
+    color: #fff;
+    border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.code-section code.csharp {
+    color: #569cd6;
+}
+
+.code-section code.csharp .keyword {
+    color: #569cd6;
+}
+
+.code-section code.csharp .string {
+    color: #ce9178;
+}
+
+.code-section code.csharp .comment {
+    color: #6a9955;
+}
+
+.about-me {
+    margin: 2rem 0;
+}
+
+.about-me h2 {
+    color: #23d5ab;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 8px rgba(35, 213, 171, 0.3);
+    letter-spacing: -0.5px;
+}
+
+.intro-text, .vision-text {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.05rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-weight: 400;
+}
+
+.intro-text {
+    border-left: 3px solid #23d5ab;
+    padding-left: 1.5rem;
+    background: linear-gradient(90deg, rgba(35, 213, 171, 0.05) 0%, transparent 100%);
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 10px 10px 0;
+}
+
+.vision-text {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+    padding: 1.8rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.skill-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.skill-level {
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-level::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: #23d5ab;
+    width: var(--level);
+    animation: skillLevel 1s ease-out;
+}
+
+@keyframes skillLevel {
+    from { width: 0; }
+    to { width: var(--level); }
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: grid;
+    gap: 0.5rem;
+}
+
+label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+input, textarea {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1rem;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    background: #23d5ab;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #1fa88f;
+}
+
+.status-message {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.status-message.success {
+    background: rgba(76, 175, 80, 0.2);
+    color: #4CAF50;
+    border: 1px solid #4CAF50;
+}
+
+.status-message.error {
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid #f44336;
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: 0 1rem;
+    }
+}
+
+/* 인천 여행 플랫폼 스타일 */
+.incheon-travel-platform .travel-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card i {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+}
+
+.course-timeline {
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 60px;
+    top: 0;
+    bottom: -2rem;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item:last-child::before {
+    display: none;
+}
+
+.timeline-item .time {
+    min-width: 60px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.timeline-item .content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.vlog-section {
+    margin-top: 3rem;
+}
+
+.vlog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.vlog-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.vlog-card:hover {
+    transform: translateY(-5px);
+}
+
+.vlog-thumbnail {
+    height: 150px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.vlog-thumbnail i {
+    font-size: 3rem;
+    color: white;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.vlog-thumbnail:hover i {
+    opacity: 1;
+}
+
+.vlog-info {
+    padding: 1rem;
+}
+
+.vlog-info h5 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.vlog-info p {
+    margin: 0.5rem 0 0;
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .travel-features {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .timeline-item {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .timeline-item::before {
+        left: 30px;
+    }
+
+    .timeline-item .time {
+        min-width: auto;
+    }
+}
+
+.project-reflection h4 {
+    margin-bottom: 1.5rem;
+    color: #fdbb2d;
+    font-size: 1.2rem;  /* 자기소개글과 동일한 크기로 수정 */
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.reflection-content p {
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: justify;
+    margin-bottom: 1.2rem;
+    font-size: 1rem;  /* 자기소개글과 동일한 크기로 수정 */
+    letter-spacing: 0.3px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 기존 CSS 초기화 및 공통 스타일 유지 */
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.nav-container h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #4CAF50;
+}
+
+/* 히어로 섹션 스타일 */
+.hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.search-box {
+    display: flex;
+    max-width: 600px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+.search-box button {
+    padding: 1rem 2rem;
+    background: #4CAF50;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-box button:hover {
+    background: #45a049;
+}
+
+/* 여행지 카드 스타일 */
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.destination-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.destination-card h3 {
+    padding: 1rem;
+    margin: 0;
+}
+
+.destination-card p {
+    padding: 0 1rem;
+    color: #ddd;
+}
+
+.destination-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* 브이로그 섹션 스타일 */
+.vlog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.vlog-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.video-placeholder {
+    background: #000;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-placeholder i {
+    font-size: 3rem;
+    color: white;
+    opacity: 0.7;
+}
+
+.vlog-info {
+    padding: 1rem;
+}
+
+.creator-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.creator-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+/* 여행 코스 섹션 스타일 */
+.route-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.route-timeline {
+    margin-top: 2rem;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.timeline-item:not(:last-child):before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 1.5rem;
+    bottom: -1.5rem;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.timeline-item i {
+    color: #4CAF50;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-content h4 {
+    margin: 0;
+    color: #fff;
+}
+
+.timeline-content p {
+    margin: 0.5rem 0 0;
+    color: #ddd;
+}
+
+/* 반응형 스타일 */
+/* 기술 스택 카테고리 스타일 */
+.tech-category {
+    margin-bottom: 3rem;
+}
+
+.tech-category h3 {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 2px solid rgba(76, 175, 80, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.tech-category h3 i {
+    color: #23d5ab;
+}
+
+.skill-card h4 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+/* 프로젝트 상세 스타일 */
+.featured-project {
+    border: 2px solid rgba(76, 175, 80, 0.5);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
+}
+
+.project-description {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.project-motivation {
+    background: rgba(253, 187, 45, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    border-left: 4px solid #fdbb2d;
+}
+
+.project-motivation h4 {
+    color: #fdbb2d;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-motivation p {
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.role-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.role-info h4 {
+    color: #23d5ab;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.role-info ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.role-info ul li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.role-info ul li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.role-info ul ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.role-info ul ul li:before {
+    content: '•';
+    font-size: 1rem;
+}
+
+/* 기술 태그 스타일 */
+.tech-stack-used {
+    margin: 2rem 0;
+}
+
+.tech-stack-used h4 {
+    color: #23a6d5;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.tech-tag {
+    background: linear-gradient(135deg, rgba(35, 213, 171, 0.2), rgba(35, 166, 213, 0.2));
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid rgba(35, 213, 171, 0.4);
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: linear-gradient(135deg, rgba(35, 213, 171, 0.4), rgba(35, 166, 213, 0.4));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 배운 점 카드 스타일 */
+.project-learnings {
+    margin: 2rem 0;
+}
+
+.project-learnings h4 {
+    color: #e73c7e;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.learning-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.learning-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #e73c7e;
+    transition: all 0.3s ease;
+}
+
+.learning-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.learning-card h5 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.learning-card h5 i {
+    color: #e73c7e;
+    font-size: 1.2rem;
+}
+
+.learning-card p {
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+}
+
+.learning-card strong {
+    color: #23d5ab;
+    font-weight: 600;
+}
+
+/* 프로젝트 성과 스타일 */
+.project-impact {
+    background: rgba(76, 175, 80, 0.1);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    border-left: 4px solid #4CAF50;
+}
+
+.project-impact h4 {
+    color: #4CAF50;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-impact ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-impact ul li {
+    margin: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.project-impact ul li:before {
+    content: '🏆';
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero-section h2 {
+        font-size: 2rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+        border-radius: 15px;
+    }
+
+    .search-box input {
+        border-radius: 15px 15px 0 0;
+    }
+
+    .search-box button {
+        border-radius: 0 0 15px 15px;
+    }
+
+    .learning-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .tech-tags {
+        justify-content: center;
+    }
+}
+
+/* Unity 게임 프로젝트 스타일 */
+.unity-game-project {
+    border: 2px solid rgba(35, 166, 213, 0.5);
+    box-shadow: 0 0 20px rgba(35, 166, 213, 0.2);
+}
+
+.game-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.game-info-card {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #23a6d5;
+    transition: all 0.3s ease;
+}
+
+.game-info-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.game-info-card h4 {
+    color: #23a6d5;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.game-info-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.game-info-card ul li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.game-info-card ul li:before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: #23d5ab;
+    font-size: 1rem;
+}
+
+.game-info-card ul li strong {
+    color: #23d5ab;
+    font-weight: 600;
+}
+
+/* 기술 구현 섹션 */
+.tech-implementation {
+    margin: 2rem 0;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.tech-implementation h4 {
+    color: #fdbb2d;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.implementation-item {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 3px solid #4CAF50;
+}
+
+.implementation-item h5 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.implementation-item p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin-top: 1rem;
+}
+
+.implementation-item ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+.implementation-item ul li {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.implementation-item ul li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.implementation-item ul li strong {
+    color: #23d5ab;
+}
+
+/* 게임플레이 플로우 */
+.gameplay-flow {
+    margin: 2rem 0;
+    background: rgba(35, 213, 171, 0.05);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.gameplay-flow h4 {
+    color: #23d5ab;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.flow-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.flow-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.flow-item:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(10px);
+}
+
+.flow-number {
+    min-width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #23d5ab, #23a6d5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(35, 213, 171, 0.3);
+}
+
+.flow-content h5 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.flow-content p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 개선 방향 섹션 */
+.project-improvements {
+    background: rgba(253, 187, 45, 0.08);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    border-left: 4px solid #fdbb2d;
+}
+
+.project-improvements h4 {
+    color: #fdbb2d;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-improvements ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-improvements ul li {
+    margin: 0.8rem 0;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.project-improvements ul li:before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.project-improvements ul li strong {
+    color: #fdbb2d;
+}
+
+/* 게임 비디오 섹션 */
+.game-video {
+    margin: 2rem 0;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 2px solid rgba(35, 213, 171, 0.3);
+}
+
+.game-video h4 {
+    color: #23d5ab;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.video-container iframe {
+    display: block;
+    border: none;
+    border-radius: 10px;
+}
+
+.game-video a {
+    transition: all 0.3s ease;
+}
+
+.game-video a:hover {
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+.game-video a i {
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+/* 기술 스택 카테고리 인라인 스타일 */
+.tech-category-inline {
+    margin: 1.5rem 0;
+    padding: 1.2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border-left: 3px solid rgba(35, 213, 171, 0.5);
+}
+
+.tech-category-inline h5 {
+    color: #fff;
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+}
+
+.tech-category-inline h5 i {
+    color: #23d5ab;
+    font-size: 1.1rem;
+}
+
+.tech-category-inline .tech-tags {
+    margin-top: 0.8rem;
+}
+
+/* 기술 태그 색상 구분 */
+.tech-tag.frontend {
+    background: linear-gradient(135deg, rgba(35, 213, 171, 0.25), rgba(35, 166, 213, 0.25));
+    border: 1px solid rgba(35, 213, 171, 0.5);
+}
+
+.tech-tag.backend {
+    background: linear-gradient(135deg, rgba(76, 175, 80, 0.25), rgba(139, 195, 74, 0.25));
+    border: 1px solid rgba(76, 175, 80, 0.5);
+}
+
+.tech-tag.database {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.25), rgba(255, 193, 7, 0.25));
+    border: 1px solid rgba(255, 152, 0, 0.5);
+}
+
+.tech-tag.unity {
+    background: linear-gradient(135deg, rgba(138, 43, 226, 0.25), rgba(147, 112, 219, 0.25));
+    border: 1px solid rgba(138, 43, 226, 0.5);
+}
+
+.tech-tag.hardware {
+    background: linear-gradient(135deg, rgba(244, 67, 54, 0.25), rgba(233, 30, 99, 0.25));
+    border: 1px solid rgba(244, 67, 54, 0.5);
+}
+
+/* 버스 추적 프로젝트 스타일 */
+.bus-tracking-project {
+    border: 2px solid rgba(76, 175, 80, 0.5);
+    box-shadow: 0 0 20px rgba(76, 175, 80, 0.2);
+}
+
+/* 반응형 - 게임 프로젝트 */
+@media (max-width: 768px) {
+    .game-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flow-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .flow-number {
+        margin-bottom: 1rem;
+    }
+
+    .implementation-item {
+        padding: 1rem;
+    }
+
+    .tech-implementation {
+        padding: 1rem;
+    }
+
+    .video-container {
+        height: 250px;
+    }
+
+    .video-container iframe {
+        height: 250px;
+    }
+
+    .game-video {
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,13 @@
+name = "portfolio-contact-form"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+name = "portfolio_db"
+database_name = "portfolio_contacts"
+database_id = "YOUR_DATABASE_ID"
+
+# D1 데이터베이스 마이그레이션 설정
+[migrations]
+table = "contacts"
+dir = "migrations"
