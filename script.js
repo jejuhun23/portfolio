@@ -116,4 +116,51 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // ==========================================
+    // 프로젝트 정보 탭 네비게이션 기능
+    // - 카테고리 클릭 시 해당 콘텐츠만 표시
+    // - 페이지 새로고침 없이 콘텐츠 전환 (SPA 방식)
+    // ==========================================
+    
+    function initProjectTabs() {
+        // 모든 탭 버튼 선택
+        const tabButtons = document.querySelectorAll('.tab-button');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // 클릭된 버튼의 데이터 속성 가져오기
+                const targetTab = this.getAttribute('data-tab');
+                const projectId = this.getAttribute('data-project');
+                
+                // 같은 프로젝트 내의 모든 탭 버튼에서 active 클래스 제거
+                const projectButtons = document.querySelectorAll(`.tab-button[data-project="${projectId}"]`);
+                projectButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // 클릭된 버튼에 active 클래스 추가
+                this.classList.add('active');
+                
+                // 같은 프로젝트 내의 모든 탭 콘텐츠 숨기기
+                const projectContents = document.querySelectorAll(`[id^="${projectId}-tab-"]`);
+                projectContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // 선택된 탭 콘텐츠만 표시
+                const targetContent = document.getElementById(`${projectId}-tab-${targetTab}`);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+                
+                // 디버깅용 로그 (개발 완료 후 제거 가능)
+                console.log(`📂 탭 전환: ${projectId} > ${targetTab}`);
+            });
+        });
+        
+        console.log('✅ 프로젝트 탭 네비게이션 초기화 완료');
+        console.log(`   - 탭 버튼 수: ${tabButtons.length}`);
+    }
+    
+    // 탭 네비게이션 초기화 실행
+    initProjectTabs();
 });

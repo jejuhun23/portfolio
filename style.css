@@ -1614,12 +1614,196 @@ nav a:hover {
 }
 
 /* ================================================
-   카테고리별 정보 카드 레이아웃 스타일
-   - 프로젝트 배경, 담당 역할, 개발 기술 스택을 카드 형태로 구분
-   - 면접관이 한눈에 정보를 파악할 수 있도록 시각적으로 구분
+   카테고리 탭 네비게이션 스타일
+   - 상단 가로 메뉴 방식으로 프로젝트 정보 카테고리 구분
+   - 클릭 시 해당 카테고리 콘텐츠만 표시 (SPA 방식)
+   - 기업 서비스 홈페이지 스타일의 심플한 디자인
    ================================================ */
 
-/* 카드 그리드 레이아웃 */
+/* 탭 네비게이션 컨테이너 - 스크린샷 스타일 적용 */
+.project-tabs-navigation {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0 0 0;
+    padding: 0.8rem 1rem;
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+    border-radius: 10px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+}
+
+/* 개별 탭 버튼 - 심플하고 깔끔한 스타일 */
+.tab-button {
+    flex: 0 0 auto;
+    min-width: fit-content;
+    padding: 0.7rem 1.2rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border-radius: 6px;
+}
+
+/* 탭 버튼 호버 상태 */
+.tab-button:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 활성화된 탭 버튼 - 밝은 배경으로 강조 */
+.tab-button.active {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+/* 탭 버튼 내 아이콘 - 작고 심플하게 */
+.tab-button i {
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+    opacity: 0.8;
+}
+
+/* 활성화된 탭의 아이콘 회전 */
+.tab-button.active i {
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+/* 탭 콘텐츠 래퍼 */
+.tab-content-wrapper {
+    margin: 0;
+    min-height: 300px;
+}
+
+/* 개별 탭 콘텐츠 */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+/* 활성화된 탭 콘텐츠 */
+.tab-content.active {
+    display: block;
+}
+
+/* 탭 콘텐츠 페이드인 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 탭 콘텐츠 내부 */
+.tab-content-inner {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin: 1.5rem 0;
+    overflow: hidden;
+}
+
+/* 콘텐츠 헤더 */
+.content-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content-header h4 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.content-header i {
+    color: #23d5ab;
+    font-size: 1.3rem;
+}
+
+/* 콘텐츠 바디 */
+.content-body {
+    padding: 1.5rem;
+}
+
+.content-body p {
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+.content-body ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.content-body ul li {
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+.content-body ul ul {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+.content-body ul ul li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* 반응형 - 탭 네비게이션 */
+@media (max-width: 768px) {
+    .project-tabs-navigation {
+        gap: 0.5rem;
+        padding: 0.6rem 0.8rem;
+    }
+    
+    .tab-button {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+        gap: 0.3rem;
+    }
+    
+    .tab-button i {
+        font-size: 0.65rem;
+    }
+    
+    .content-header {
+        padding: 1rem 1.2rem;
+    }
+    
+    .content-header h4 {
+        font-size: 1.05rem;
+    }
+    
+    .content-body {
+        padding: 1.2rem;
+    }
+}
+
+/* 카드 그리드 레이아웃 (Unity 프로젝트용 유지) */
 .project-info-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
