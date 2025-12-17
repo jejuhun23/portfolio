@@ -1620,56 +1620,69 @@ nav a:hover {
    - 기업 서비스 홈페이지 스타일의 심플한 디자인
    ================================================ */
 
-/* 탭 네비게이션 컨테이너 - 스크린샷 스타일 적용 */
+/* 탭 네비게이션 컨테이너 - 미니멀 스타일 */
 .project-tabs-navigation {
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     margin: 2rem 0 0 0;
-    padding: 0.8rem 1rem;
-    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
-    border-radius: 10px;
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
-/* 개별 탭 버튼 - 심플하고 깔끔한 스타일 */
+/* 개별 탭 버튼 - 극도로 심플한 스타일 */
 .tab-button {
     flex: 0 0 auto;
     min-width: fit-content;
-    padding: 0.7rem 1.2rem;
+    padding: 0.5rem 0;
     background: transparent;
     border: none;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(0, 0, 0, 0.7);
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     white-space: nowrap;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 0.4rem;
-    border-radius: 6px;
+    gap: 0.3rem;
+    position: relative;
 }
 
 /* 탭 버튼 호버 상태 */
 .tab-button:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
+    color: rgba(0, 0, 0, 0.9);
 }
 
-/* 활성화된 탭 버튼 - 밝은 배경으로 강조 */
+/* 활성화된 탭 버튼 - 언더라인으로 강조 */
 .tab-button.active {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.2);
+    color: rgba(0, 0, 0, 1);
     font-weight: 600;
 }
 
-/* 탭 버튼 내 아이콘 - 작고 심플하게 */
+.tab-button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* 탭 버튼 내 아이콘 - 최소 크기 */
 .tab-button i {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     transition: transform 0.3s ease;
+    opacity: 0.6;
+}
+
+.tab-button:hover i {
     opacity: 0.8;
 }
 
@@ -1776,18 +1789,22 @@ nav a:hover {
 /* 반응형 - 탭 네비게이션 */
 @media (max-width: 768px) {
     .project-tabs-navigation {
-        gap: 0.5rem;
-        padding: 0.6rem 0.8rem;
+        gap: 1.5rem;
+        padding: 0.8rem 1rem;
     }
     
     .tab-button {
-        font-size: 0.85rem;
-        padding: 0.6rem 1rem;
-        gap: 0.3rem;
+        font-size: 0.88rem;
+        padding: 0.4rem 0;
+        gap: 0.25rem;
     }
     
     .tab-button i {
-        font-size: 0.65rem;
+        font-size: 0.6rem;
+    }
+    
+    .tab-button.active::after {
+        bottom: -0.4rem;
     }
     
     .content-header {
