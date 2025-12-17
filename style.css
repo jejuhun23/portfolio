@@ -1612,3 +1612,184 @@ nav a:hover {
         padding: 1rem;
     }
 }
+
+/* ================================================
+   카테고리별 정보 카드 레이아웃 스타일
+   - 프로젝트 배경, 담당 역할, 개발 기술 스택을 카드 형태로 구분
+   - 면접관이 한눈에 정보를 파악할 수 있도록 시각적으로 구분
+   ================================================ */
+
+/* 카드 그리드 레이아웃 */
+.project-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* 개별 정보 카드 공통 스타일 */
+.info-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* 카드 헤더 */
+.card-header {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-header h4 {
+    margin: 0;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.card-header i {
+    color: #23d5ab;
+    font-size: 1.3rem;
+}
+
+/* 카드 내용 */
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content p {
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+}
+
+.card-content ul {
+    margin: 0;
+    padding-left: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.card-content ul li {
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+.card-content ul ul {
+    margin-top: 0.5rem;
+    padding-left: 1rem;
+}
+
+.card-content ul ul li {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* 각 카드별 강조 색상 */
+.motivation-card {
+    border-left: 4px solid #f39c12;
+}
+
+.motivation-card .card-header i {
+    color: #f39c12;
+}
+
+.role-card {
+    border-left: 4px solid #3498db;
+}
+
+.role-card .card-header i {
+    color: #3498db;
+}
+
+.tech-stack-card {
+    border-left: 4px solid #9b59b6;
+}
+
+.tech-stack-card .card-header i {
+    color: #9b59b6;
+}
+
+/* 기술 스택 카드는 전체 너비로 표시 (더 많은 정보 포함) */
+.tech-stack-card {
+    grid-column: 1 / -1;
+}
+
+/* 기술 카테고리 간격 조정 */
+.tech-stack-card .tech-category-inline {
+    margin-bottom: 1.2rem;
+}
+
+.tech-stack-card .tech-category-inline:last-child {
+    margin-bottom: 0;
+}
+
+.tech-stack-card h5 {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tech-stack-card h5 i {
+    font-size: 1.1rem;
+}
+
+/* 반응형 레이아웃 - 태블릿 */
+@media (max-width: 992px) {
+    .project-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tech-stack-card {
+        grid-column: 1;
+    }
+}
+
+/* Unity 프로젝트 기술 스택 카드 스타일 */
+.unity-tech-card {
+    border-left: 4px solid #5c7cfa;
+    margin: 2rem 0;
+}
+
+.unity-tech-card .card-header i {
+    color: #5c7cfa;
+}
+
+/* 반응형 레이아웃 - 모바일 */
+@media (max-width: 768px) {
+    .project-info-grid {
+        gap: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .card-header {
+        padding: 1rem 1.2rem;
+    }
+    
+    .card-header h4 {
+        font-size: 1.05rem;
+    }
+    
+    .card-content {
+        padding: 1.2rem;
+    }
+    
+    .card-content ul {
+        padding-left: 1rem;
+    }
+}
