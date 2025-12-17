@@ -23,14 +23,15 @@
                     <p class="student-id"><i class="fas fa-user-graduate"></i> 2024621026</p>
                 </div>
                 <div class="about-me">
+                    <h2>Profile</h2>
                     <h2>자기소개</h2>
                     <p class="intro-text">
                         안녕하세요. <strong>백엔드 개발자</strong>를 희망하는 김재헌입니다.
 저의 가장 큰 강점은 <strong>꾸준함을 통해 반드시 결과를 만들어낸다</strong>는 것입니다.
 
-실제 프로젝트를 통해 문제 해결 역량과 개발 실무 능력을 지속적으로 키워왔습니다. '재능대학교 실시간 버스 위치 확인 앱' 프로젝트에서는 공공 API가 없는 한계를 라즈베리파이와 GPS 모듈을 활용한 하드웨어 솔루션으로 극복했으며, Node.js 백엔드를 구축하여 실시간 데이터 처리 시스템을 구현했습니다.
+'카체블(카페인 체내 블랙박스)' 프로젝트에서는 중고등학생의 카페인 과다섭취 문제를 해결하기 위한 서비스를 개발하며 프론트엔드 UI 구현을 담당했습니다. React 기반으로 사용자 친화적인 인터페이스를 만들고, 백엔드팀과 API 명세를 협의하며 RESTful API 설계 방식을 이해했습니다. 5명이 동시에 작업하는 환경에서 Git 브랜치 전략과 코드 리뷰의 중요성을 경험했습니다.
 
-또한 '카체블(카페인 체내 블랙박스)' 프로젝트에서는 중고등학생의 카페인 과다섭취 문제를 해결하기 위한 서비스를 개발하며 UI 구현을 담당했습니다. 이 과정에서 팀 협업의 중요성과 효과적인 의사소통 방법을 체득했습니다.
+또한 Unity 엔진으로 3D 액션 게임을 개발하며 C# 프로그래밍과 게임 로직 구현 경험을 쌓았습니다.
 
 이러한 경험을 통해 단순한 코딩을 넘어, 현실의 문제를 정의하고 실질적인 해결책을 설계할 수 있는 개발자로 성장하고 있습니다.
                     </p>
@@ -41,7 +42,7 @@
                 <div class="tech-badges">
                     <span class="badge"><i class="fas fa-layer-group"></i> Backend Development</span>
                     <span class="badge"><i class="fas fa-laptop-code"></i> Web Development</span>
-                    <span class="badge"><i class="fas fa-microchip"></i> IoT</span>
+                    <span class="badge"><i class="fas fa-gamepad"></i> Game Development</span>
                 </div>
                 <div class="contact-info">
                     <a href="mailto:rlawogjs147258@gmail.com" class="contact-item">
@@ -201,20 +202,20 @@
                     <div class="game-info-card">
                         <h4><i class="fas fa-gamepad"></i> 게임 룰 & 조작</h4>
                         <ul>
-                            <li><strong>자동 회전 시스템:</strong> 플레이어가 원형 플랫폼을 따라 자동으로 회전</li>
-                            <li><strong>원터치 조작:</strong> 마우스 클릭/터치로 플레이어 이동</li>
-                            <li><strong>생존 목표:</strong> 몬스터 처치 및 플랫폼에서 생존</li>
-                            <li><strong>보스 등장:</strong> 일정 점수 도달 시 보스 몬스터 출현</li>
+                            <li><strong>자동 회전:</strong> 플레이어가 원형 플랫폼을 따라 계속 돌아감</li>
+                            <li><strong>간단한 조작:</strong> 마우스 클릭만으로 플레이어 이동</li>
+                            <li><strong>게임 목표:</strong> 몬스터를 처치하면서 최대한 오래 살아남기</li>
+                            <li><strong>보스 등장:</strong> 점수가 일정 수준 이상 올라가면 보스 출현</li>
                         </ul>
                     </div>
 
                     <div class="game-info-card">
                         <h4><i class="fas fa-skull-crossbones"></i> 몬스터 시스템</h4>
                         <ul>
-                            <li><strong>일반 몬스터:</strong> Transform.LookAt()으로 플레이어 추적</li>
-                            <li><strong>스폰 시스템:</strong> 코루틴 기반 랜덤 위치 생성</li>
-                            <li><strong>보스 몬스터:</strong> 3배 체력 + 점프 공격 패턴</li>
-                            <li><strong>충돌 감지:</strong> OnCollisionEnter() 활용</li>
+                            <li><strong>일반 몬스터:</strong> 플레이어를 계속 쫓아오도록 구현</li>
+                            <li><strong>스폰 시스템:</strong> 랜덤한 위치에서 몬스터가 계속 생성됨</li>
+                            <li><strong>보스 몬스터:</strong> 일반 몬스터보다 체력 3배 + 점프 공격 가능</li>
+                            <li><strong>충돌 감지:</strong> 플레이어와 부딪히면 게임 오버</li>
                         </ul>
                     </div>
                 </div>
@@ -294,7 +295,7 @@
 
                     <p style="margin-top: 1.5rem; color: rgba(255,255,255,0.8); font-size: 0.95rem;">
                         <strong>개발 기간:</strong> 약 2주 | 
-                        <strong>개발 인원:</strong> 4인 (개인 프로젝트)
+                        <strong>개발 인원:</strong> 1인 (개인 프로젝트)
                     </p>
                 </div>
 
@@ -350,122 +351,6 @@
                             <i class="fab fa-youtube"></i> YouTube에서 보기
                         </a>
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <section class="project-section bus-tracking-project">
-            <h2>재능대학교 통학버스 실시간 위치 추적 시스템</h2>
-            <div class="project-details">
-                <h3>캡스톤 디자인 프로젝트</h3>
-                
-                <div class="project-overview">
-                    <p class="project-description">
-                        라즈베리파이와 GPS 모듈을 활용하여 통학버스의 실시간 위치를 추적하고, 
-                        학생들이 모바일 앱을 통해 버스 위치를 확인할 수 있는 IoT 기반 시스템입니다.
-                        공공 API가 없는 환경에서 하드웨어를 직접 연동하여 문제를 해결한 프로젝트입니다.
-                    </p>
-                </div>
-
-                <div class="role-info">
-                    <h4><i class="fas fa-user-check"></i> 담당 역할</h4>
-                    <ul>
-                        <li><strong>백엔드 개발</strong>
-                            <ul>
-                                <li>Node.js 기반 서버 구축</li>
-                                <li>GPS 데이터 수신 및 처리 시스템 구현</li>
-                                <li>실시간 위치 데이터 API 개발</li>
-                            </ul>
-                        </li>
-                        <li><strong>하드웨어 연동</strong>
-                            <ul>
-                                <li>라즈베리파이와 GPS 모듈 연결</li>
-                                <li>Serial Port 통신 구현</li>
-                                <li>위치 데이터 실시간 수집 시스템 구축</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="tech-stack-used">
-                    <h4><i class="fas fa-tools"></i> 실시간 버스 추적 시스템 기술 스택</h4>
-                    
-                    <div class="tech-category-inline">
-                        <h5><i class="fas fa-server"></i> 백엔드 (담당)</h5>
-                        <div class="tech-tags">
-                            <span class="tech-tag backend">Node.js</span>
-                            <span class="tech-tag backend">Express</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category-inline">
-                        <h5><i class="fas fa-microchip"></i> 하드웨어 (담당)</h5>
-                        <div class="tech-tags">
-                            <span class="tech-tag hardware">Raspberry Pi</span>
-                            <span class="tech-tag hardware">GPS Module</span>
-                            <span class="tech-tag hardware">Serial Port</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category-inline">
-                        <h5><i class="fas fa-mobile-alt"></i> 프론트엔드 (팀 협업)</h5>
-                        <div class="tech-tags">
-                            <span class="tech-tag frontend">React Native</span>
-                            <span class="tech-tag frontend">JavaScript</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-category-inline">
-                        <h5><i class="fas fa-code-branch"></i> 버전 관리 & 협업</h5>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Git</span>
-                        </div>
-                    </div>
-
-                    <p style="margin-top: 1.5rem; color: rgba(255,255,255,0.8); font-size: 0.95rem;">
-                        <strong>개발 기간:</strong> 약 3개월 | 
-                        <strong>개발 인원:</strong> 4인 (팀 프로젝트)
-                    </p>
-                </div>
-
-                <div class="project-learnings">
-                    <h4><i class="fas fa-graduation-cap"></i> 프로젝트를 통해 배운 점</h4>
-                    <div class="learning-cards">
-                        <div class="learning-card">
-                            <h5><i class="fas fa-lightbulb"></i> 없으면 만들면 된다</h5>
-                            <p>
-                                버스 위치 API가 없어서 처음에는 막막했는데, <strong>하드웨어로 직접 만들자</strong>는 
-                                아이디어가 나왔어요. 라즈베리파이에 GPS 모듈 달아서 데이터를 직접 수집하는 방식으로 
-                                해결했습니다. 길이 막혀있다고 포기하지 말고 다른 방법을 찾아보는 게 중요하다는 걸 
-                                이번에 확실히 배웠어요.
-                            </p>
-                        </div>
-                        <div class="learning-card">
-                            <h5><i class="fas fa-microchip"></i> 하드웨어 + 소프트웨어</h5>
-                            <p>
-                                라즈베리파이랑 GPS 모듈 연결하고 데이터 받아오는 작업이 진짜 어려웠어요. 
-                                <strong>Serial Port로 통신</strong>하는 것도 처음 해봤고요. 
-                                하드웨어에서 받은 데이터를 Node.js 서버로 보내고, 그걸 또 앱으로 전달하는 
-                                전체 흐름을 직접 만들어보니까 IoT가 어떻게 돌아가는지 이해가 됐습니다.
-                            </p>
-                        </div>
-                        <div class="learning-card">
-                            <h5><i class="fas fa-robot"></i> AI 똑똑하게 쓰기</h5>
-                            <p>
-                                Cursor 같은 AI 툴 쓸 때 <strong>기본 원리를 알아야</strong> 제대로 활용할 수 있어요. 
-                                라즈베리파이 코드 짤 때 AI가 제안한 걸 그냥 썼다가 작동이 안 돼서 한참 헤맸거든요. 
-                                그 뒤로는 AI 코드를 받아도 왜 이렇게 짰는지 이해하려고 노력하고 있습니다. 
-                                AI는 참고용이지 전부가 아니라는 걸 배웠어요.
-                            </p>
-                        </div>
-                        <div class="learning-card">
-                            <h5><i class="fab fa-git-alt"></i> 팀 협업 도구</h5>
-                            <p>
-                                Git을 활용해 4명이 동시에 작업하면서 브랜치 관리와 충돌 해결 경험을 쌓았습니다. 
-                                백엔드, 프론트엔드, 하드웨어 파트를 나눠서 개발하고 통합하는 과정에서 협업 도구의 중요성을 실감했습니다.
-                            </p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
